@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+   
+
+      <header class="masthead ">
+        <div class="inner ">
+          <h3 class="masthead-brand " style="text-align: center;"><a href="{% url 'Post:MainPost' %}">MysiteBuilder</a></h3>
+          <nav class="nav nav-masthead justify-content-center">
+            <a class="nav-link " href="{% url 'Post:MainPost' %}">Home</a>
+            <a class="nav-link" href="{% url 'Post:AllFeaturePost' %}">Features</a>
+             <a class="nav-link active" href="{% url 'Post:ContactUs' %}">Contact</a>
+            <a class="nav-link" href="{% url 'Post:AboutUs' %}">About us</a>
+
+          </nav>
+        </div>
+      </header>
+
+
+ <hr class="featurette-divider">
+
+
+
+
+<div>
+
+ 
+  <form method="post">
+    {% csrf_token %}
+    {{ contact_form|crispy  }}
+    
+       <button type="submit" class="btn btn-success" style="    margin-bottom: 15px;">Send</button>
+  </form>
+
+
+
+
+
+
+
+
+
+
+</div>
+
+ <hr class="featurette-divider">
+     <footer class="mastfoot mt-auto">
+        <p class="float-right"><a href="#">Back to top</a></p>
+        <p>© 2017-2018 MysiteBuilder, Inc. · <a href="#">Privacy</a> · <a href="#">Terms</a></p>
+      </footer>
+  </div>
+
+{% endblock %}

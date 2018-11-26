@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+      <header class="masthead " style="margin-bottom:0;">
+        <div class="inner ">
+          <h3 class="masthead-brand " style="text-align: center;"><a href="{% url 'Post:MainPost' %}">MysiteBuilder</a></h3>
+          <nav class="nav nav-masthead justify-content-center">
+            <a class="nav-link " href="{% url 'Post:MainPost' %}">Home</a>
+            <a class="nav-link active" href="{% url 'Post:AllFeaturePost' %}">Features</a>
+             <a class="nav-link" href="{% url 'Post:ContactUs' %}">Contact</a>
+            <a class="nav-link" href="{% url 'Post:AboutUs' %}">About us</a>
+
+          </nav>
+        </div>
+      </header>
+
+
+
+<main role="main">
+
+
+
+
+      <!-- Marketing messaging and featurettes
+      ================================================== -->
+      <!-- Wrap the rest of the page in another container to center all the content. -->
+
+      <div class="container marketing">
+
+        <!-- START THE FEATURETTES -->
+{% for object in object_list %}
+        <hr class="featurette-divider">
+
+        <div class="row featurette">
+          <div class="col-md-7">
+            <a href="http://karennibrisbane.pythonanywhere.com/"><h2 class="featurette-heading" >{{object.title}}</a> <span class="text-muted">{{object.subject}}</span></h2> 
+            <p class="lead">{{object.body}}</p>
+          </div>
+          <div class="col-md-5">
+            <img class="featurette-image img-fluid mx-auto"  alt="500x500" style="width: 530px; " src="{{ object.image.url }}" >
+          </div>
+        </div>
+
+{% endfor %}
+
+       
+
+        <hr class="featurette-divider">
+
+        <!-- /END THE FEATURETTES -->
+
+      </div><!-- /.container -->
+
+    </main>
+      <!-- FOOTER -->
+      <footer class="container" style="padding-bottom: 48px;">
+        <p class="float-right"><a href="#">Back to top</a></p>
+        <p>© 2017-2018 MysiteBuilder, Inc. · <a href="#">Privacy</a> · <a href="#">Terms</a></p>
+      </footer>
+  </div>
+
+{% endblock %}

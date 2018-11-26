@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+   
+
+      <header class="masthead mb-auto">
+        <div class="inner ">
+          <h3 class="masthead-brand " style="text-align: center;"><a href="{% url 'Post:MainPost' %}">MysiteBuilder</a></h3>
+          <nav class="nav nav-masthead justify-content-center">
+            <a class="nav-link " href="{% url 'Post:MainPost' %}">Home</a>
+            <a class="nav-link" href="{% url 'Post:AllFeaturePost' %}">Features</a>
+             <a class="nav-link active" href="{% url 'Post:ContactUs' %}">Contact</a>
+            <a class="nav-link" href="{% url 'Post:AboutUs' %}">About us</a>
+
+          </nav>
+        </div>
+      </header>
+
+
+ <hr class="featurette-divider">
+
+ {% if messages %}
+      
+            {% for message in messages %}
+
+            <div class="alert alert-success" role="alert">
+
+
+              <li class="{{ message.tags }}">
+                {{ message|safe }}
+                <a href="#" class="close">x</a>
+              </li>
+
+                
+</div>
+            {% endfor %}
+         
+        {% endif %}
+
+        
+
+<div>
+
+ 
+
+
+
+
+
+
+
+
+</div>
+
+ <hr class="featurette-divider">
+     <footer class="mastfoot mt-auto">
+        <p class="float-right"><a href="#">Back to top</a></p>
+        <p>© 2017-2018 MysiteBuilder, Inc. · <a href="#">Privacy</a> · <a href="#">Terms</a></p>
+      </footer>
+  </div>
+
+{% endblock %}
